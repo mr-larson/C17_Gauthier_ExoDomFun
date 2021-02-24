@@ -1,33 +1,33 @@
 // Exo Copy Img
-/* let btn = document.getElementsByClassName("btn")[0]
-let container = document.getElementById ("mignon-container")
-let img = document.querySelector("img")
+let btn0 = document.getElementsByClassName("btn")[0]
+let container0 = document.getElementById ("mignon-container")
+let img0 = document.querySelector("img")
 
-btn.addEventListener("click", () =>{
-    let clone = img.cloneNode()
-    container.appendChild(clone)
+btn0.addEventListener("click", () =>{
+    let clone0 = img0.cloneNode()
+    container0.appendChild(clone0)
 })
-console.log(img) */
+console.log(img0)
 
 // Exo Rm Images
-/* let container = document.getElementById("mignon2-container")
-let img = container.children
+let container1 = document.getElementById("mignon2-container")
+let img1 = container1.children
 
-container.addEventListener("click", (e) =>{
+container1.addEventListener("click", (e) =>{
     if(e.target.tagName == "IMG"){
         e.target.remove()
-        if(img.length == 0){
+        if(img1.length == 0){
             setTimeout (()=>{
                 for(let i = 0; i<5; i++){
-                    let clone = e.target.cloneNode()
-                    container.appendChild(clone)
+                    let clone1 = e.target.cloneNode()
+                    container1.appendChild(clone1)
                 }
             },2000)
         }
     }
     
-}) */
-// Exo Rm Images Variable
+})
+// Exo Rm Images Vr2
 /* const container = document.querySelector("#mignon2-container");
 removable(container);
 
@@ -53,8 +53,47 @@ function restart(node) {
 } */
 
 // Exo Add Li
-let ul = document.querySelector("ul")
-let li = document.createElement("li")
-li.textContent = 
+let ul0 = document.querySelector("ul")
+let li0 = document.createElement("li")
+let li3 = document.querySelectorAll("#exo-add-li > ul > li")[1]
+li0.textContent = "li num 2"
 
-ul.insertBefore()
+ul0.insertBefore(li0,li3)
+
+//Exo Li From Input
+let input = document.querySelector('.form-control')
+let button = document.querySelector('.form-row>div>button')
+let liste = document.querySelector('#exo-li-from-input>ul')
+
+button.addEventListener('click', () => {
+    let li4 = document.createElement('li')
+    li4.innerText = input.value
+    liste.insertBefore(li4, document.querySelectorAll("#exo-li-from-input>ul>li")[0])
+    input.value = ''
+})
+
+let order = false
+let edit = document.querySelector('#exo-li-from-input>button')
+edit.addEventListener('click', () => {
+    let listeTab = document.querySelectorAll("#exo-li-from-input>ul>li")
+    if(order == false){
+        edit.className = "btn btn-success mb-4"
+        listeTab[0].addEventListener('click', () => {
+            liste.addEventListener('click', (e) => {
+                let temp = listeTab[0].innerText;
+                listeTab[0].innerText = e.target.innerText;
+                e.target.innerText = temp
+            })
+        }, false)
+        order = true
+    }else if(order == true){
+        edit.className = "btn btn-light mb-4";
+        listeTab[0].removeEventListener('click', () => {
+            liste.addEventListener('click', (e) => {
+                let temp = listeTab[0].innerText;
+                listeTab[0].innerText = e.target.innerText
+                e.target.innerText = temp
+            })
+        }, false)
+    }      
+})

@@ -56,4 +56,12 @@ change.addEventListener ("click", () =>{
         change.style.backgroundColor = "red"
     })
 })
+
+// Exo Set Color
+let couleur = document.getElementById('pick-color')
+let p = couleur.nextElementSibling
+
+couleur.addEventListener('change', () => {
+    p.style.color = couleur.value
+})
 //--------------------------------------------------
