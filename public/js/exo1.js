@@ -1,8 +1,8 @@
 // Exo Counter
 let i = 1
 let count = document.querySelector("span")
-console.log(count.textContent)
 let button0 = document.querySelector("button")
+
 button0.addEventListener("click", () =>{
     count.textContent = i
     i++
@@ -40,7 +40,7 @@ square.addEventListener('click', () =>{
 // Exo Numerote Title
 let title = document.querySelectorAll ("h2")
 
-document.addEventListener("keypress", (e) =>{
+document.addEventListener("keydown", (e) =>{
     if (e.key == 6 ){
        title.forEach((element, index) => {
            element.textContent = `${index}. ${element.textContent}`
